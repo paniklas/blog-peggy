@@ -3,6 +3,7 @@
 const { connectToDatabase } = require("@/utils/utils");
 import { Post } from "@/utils/models";
 import { revalidatePath } from "next/cache";
+import { auth, signIn, signOut  } from '@/utils/auth';
 
 
 export const addPostAction = async (formData) => {
@@ -88,4 +89,12 @@ export const deletePostAction = async (formData) => {
         console.log(error);
         return { error: "Error deleting post. Please try again." };
     }
+}
+
+export const handleGithubLogin = async () => {
+    await signIn('github')
+}
+
+export const handleLogout = async () => {
+    await signOut();
 }

@@ -4,12 +4,12 @@ import EditPostForm from "@/components/EditPostForm";
 
 const EditPost = async ({ params }) => {
 
-    console.log(params);
+    // console.log(params);
 
     const { id } = params;
 
     const post = await getPost(id);
-    console.log(post);
+    // console.log(post);
 
     return (
         <div>

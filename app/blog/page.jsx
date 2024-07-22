@@ -15,9 +15,15 @@ const AllBlogs = async () => {
     console.log(posts);
 
     return (
-        <section className="flex flex-col justify-start  gap-20">
-            <h1 className="  border-4 rounded-full ml-[750px] w-80 p-3 text-center border-indigo-400 text-indigo-400 text-4xl font-sans font-bold bg-slate-800 ">All Posts</h1>
-            <div className="grid grid-cols-2 px-60 gap-20">
+        <section className="flex flex-col justify-center items-center gap-20 w-full pt-10">
+            <div className="flex justify-center items-center gap-10">
+                <h1 className="flex-1 border-4 rounded-full text-center border-indigo-400 text-indigo-400 text-4xl font-sans font-bold bg-slate-800 px-8 py-3">All Posts</h1>
+                <Link href="/blog/add">
+                    <Button size="4">Add Post</Button>
+                </Link>
+            </div>
+
+            <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-20">
                 <Suspense fallback={<Skeleton className="h-[125px] w-[250px] rounded-xl " />}>
                     {posts.map((post) => (
                         <div key={post.id} className="flex flex-col border border-white rounded-lg p-4">
